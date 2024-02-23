@@ -1,0 +1,22 @@
+body {
+    /* Fondo multicolor */
+    background: linear-gradient(to right, #FF5733, #FFC300, #4CAF50, #00BFFF, #800080);
+    /* Asegura que el fondo se extienda por toda la ventana */
+    min-height: 100vh;
+    margin: 0;
+    /* Ajusta el estilo de la fuente y el texto */
+    font-family: Arial, sans-serif;
+    color: white; /* Color del texto */
+    text-align: center; /* Centra el contenido en el medio */
+    padding: 20px; /* Añade algo de espacio alrededor del contenido */
+    /* Animación para cambiar el fondo */
+    animation: cambioFondo 0.2s infinite alternate;
+}
+
+@keyframes cambioFondo {
+    0% { background-color: #FF5733; } /* Rojo */
+    25% { background-color: #FFC300; } /* Naranja */
+    50% { background-color: #4CAF50; } /* Verde */
+    75% { background-color: #00BFFF; } /* Azul claro */
+    100% { background-color: #800080; } /* Púrpura */
+}
