@@ -1,6 +1,6 @@
 body {
     /* Fondo multicolor */
-    background: linear-gradient(to right, #FF5733, #FFC300, #4CAF50, #00BFFF, #800080);
+    background: linear-gradient(to right, black, black, grey, white, white);
     /* Asegura que el fondo se extienda por toda la ventana */
     min-height: 100vh;
     margin: 0;
@@ -9,8 +9,10 @@ body {
     color: white; /* Color del texto */
     text-align: center; /* Centra el contenido en el medio */
     padding: 20px; /* Añade algo de espacio alrededor del contenido */
-    /* Animación para cambiar el fondo */
-    animation: cambioFondo 0.2s infinite alternate;
+}
+
+a{
+ color: aliceblue;   
 }
 
 @keyframes cambioFondo {

@@ -9,5 +9,65 @@
 </head>
 <body>
     <h1>HOLA BIENVENIDO A LOGIN</h1>
+
+    <!-- Formulario de inicio de sesión -->
+    <form id="loginForm">
+        <div>
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <button type="submit">Iniciar Sesión</button>
+        </div>
+    </form>
+
+    <!-- JavaScript para manejar el formulario de inicio de sesión -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('loginForm');
+
+            loginForm.addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                // Obtenemos los valores de usuario y contraseña del formulario
+                const username = loginForm.querySelector('#username').value;
+                const password = loginForm.querySelector('#password').value;
+
+                // Enviar los datos del formulario al servidor para autenticación
+                try {
+                    const response = await fetch('/loginUser', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ username, password })
+                    });
+
+                    // Verificar el estado de la respuesta
+                    if (response.ok) {
+                        const data = await response.json();
+                        alert(data.message); // Mostrar mensaje de bienvenida
+                    } else if (response.status === 401) {
+                        alert('Contraseña incorrecta. Por favor, intenta de nuevo.'); // Contraseña incorrecta
+                    } else if (response.status === 404) {
+                        const confirmRegister = confirm('El usuario no existe en la base de datos. ¿Quieres registrarte?');
+                        if (confirmRegister) {
+                            // Redireccionar a la página de registro
+                            window.location.href = '/registro';
+                        }
+                    } else {
+                        alert('Error interno del servidor'); // Otros errores
+                    }
+                } catch (error) {
+                    console.error('Error al iniciar sesión:', error);
+                    alert('Error al iniciar sesión. Por favor, intenta de nuevo.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

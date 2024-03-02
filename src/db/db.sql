@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS pesaoDeNarices;
+CREATE DATABASE IF NOT EXISTS usuariosInsertados;
 
-use pesaoDeNarices;
+use usuariosInsertados;
 
 CREATE TABLE users(
     id int auto_increment primary KEY,

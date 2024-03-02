@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('partials/head') %>
+</head>
+<body>
+    <h1>ESTOS SON LOS USUARIOS REGISTRADOS</h1>
+
+    <!-- Tabla para mostrar los usuarios -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Contraseña</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody">
+            <!-- Aquí se insertarán las filas de la tabla -->
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.nameuser %></td>
+                    <td><%= user.password %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <!-- No necesitamos más JavaScript para manejar la respuesta -->
+</body>
+</html>
